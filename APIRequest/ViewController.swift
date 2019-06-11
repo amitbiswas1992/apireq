@@ -7,12 +7,23 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
 
+    
+    
+    @IBOutlet weak var priceLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+      
+    priceLabel.text = "..."
+    
+        Alamofire.request("https://api.coindesk.com/v1/bpi/currentprice.json").responseJSON { (response) in
+            print(response)
+        }
+   
     }
 
 
